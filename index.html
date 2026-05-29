@@ -1,0 +1,379 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>MCert — The Standard for Clarity</title>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,400&display=swap" rel="stylesheet"/>
+<style>
+:root {
+  --navy:#1B2A4A;
+  --teal:#4ABFA3;
+  --teal-l:#D8F5EE;
+  --coral:#E8705A;
+  --coral-l:#FAE8E4;
+  --gold:#D9A020;
+  --gold-l:#FDF0D0;
+  --lav:#7B6FD4;
+  --lav-l:#ECEAFA;
+  --bg:#F5F3EE;
+  --white:#FFFFFF;
+  --muted:#8A9BB0;
+  --text:#2C3E5A;
+  --font:'Plus Jakarta Sans',sans-serif;
+}
+*{margin:0;padding:0;box-sizing:border-box;}
+html{scroll-behavior:smooth;}
+body{font-family:var(--font);background:var(--bg);color:var(--text);overflow-x:hidden;}
+
+/* NAV */
+nav{position:fixed;top:0;left:0;right:0;background:#4ABFA3;z-index:1000;display:flex;align-items:center;justify-content:space-between;padding:0 3rem;height:60px;}
+.nav-logo{display:flex;align-items:center;gap:10px;text-decoration:none;}
+.nav-logo-mark{width:32px;height:32px;display:flex;align-items:center;justify-content:center;}
+.nav-logo-mark svg{width:32px;height:32px;}
+.nav-logo-text{font-size:15px;font-weight:700;color:#1B2A4A;letter-spacing:0.04em;}
+.nav-links{display:flex;align-items:center;gap:2.5rem;list-style:none;}
+.nav-links a{color:#1B2A4A;font-size:12px;font-weight:700;text-decoration:none;letter-spacing:0.08em;text-transform:uppercase;transition:opacity 0.2s;}
+.nav-links a:hover{opacity:0.7;}
+@media(max-width:600px){.nav-links{display:none;}nav{padding:0 1.5rem;}}
+
+/* HERO */
+.hero{min-height:80vh;background:var(--navy);display:grid;grid-template-columns:1fr 1fr;align-items:center;padding:8rem 6% 5rem;position:relative;overflow:hidden;}
+.hero::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse 60% 70% at 70% 50%,rgba(74,191,163,0.1) 0%,transparent 70%);}
+.hero-left{position:relative;z-index:2;}
+.hero-eyebrow{font-size:11px;font-weight:600;letter-spacing:0.18em;text-transform:uppercase;color:var(--teal);margin-bottom:1.5rem;animation:fadeUp 0.8s 0.2s both;}
+.hero h1{font-size:clamp(2.8rem,5vw,4.8rem);font-weight:800;color:white;line-height:1.05;letter-spacing:-0.02em;margin-bottom:1.5rem;animation:fadeUp 0.8s 0.4s both;}
+.hero h1 em{color:var(--teal);font-style:normal;}
+.hero-sub{font-size:1rem;color:rgba(255,255,255,0.55);font-weight:400;max-width:480px;line-height:1.75;margin-bottom:2.5rem;animation:fadeUp 0.8s 0.6s both;}
+.hero-sub strong{color:rgba(255,255,255,0.85);font-weight:600;}
+.btn-primary{display:inline-flex;align-items:center;gap:0.5rem;background:var(--teal);color:var(--navy);padding:0.85rem 1.8rem;border-radius:100px;font-weight:700;font-size:14px;text-decoration:none;letter-spacing:0.06em;text-transform:uppercase;transition:transform 0.18s,box-shadow 0.18s;animation:fadeUp 0.8s 0.8s both;white-space:nowrap;}
+.btn-primary:hover{transform:translateY(-2px);box-shadow:0 8px 28px rgba(74,191,163,0.3);}
+.btn-primary .arrow{display:inline-flex;align-items:center;justify-content:center;flex-shrink:0;}
+.btn-join{display:inline-flex;align-items:center;gap:0.5rem;background:var(--teal);color:var(--navy);font-family:var(--font);font-size:14px;font-weight:700;letter-spacing:0.06em;text-transform:uppercase;padding:0.85rem 1.8rem;border-radius:100px;text-decoration:none;transition:background 0.2s,transform 0.2s;position:relative;z-index:2;white-space:nowrap;}
+.btn-join:hover{background:#5dd4b6;transform:translateY(-2px);}
+.btn-join .arrow{display:inline-flex;align-items:center;justify-content:center;flex-shrink:0;}
+.hero-right{display:flex;align-items:center;justify-content:center;position:relative;z-index:2;animation:fadeUp 0.9s 0.3s both;}
+.brain-wrap{width:85%;max-width:480px;opacity:0.95;}
+.brain-wrap img{width:100%;height:auto;display:block;}
+
+/* SECTIONS */
+.section{padding:7rem 2rem;}
+.container{max-width:1080px;margin:0 auto;}
+.section-label{font-size:11px;font-weight:700;letter-spacing:0.2em;text-transform:uppercase;color:var(--teal);margin-bottom:1rem;}
+.section-title{font-size:clamp(2.4rem,4.5vw,3.8rem);font-weight:800;color:var(--navy);line-height:1.08;letter-spacing:-0.02em;margin-bottom:1.2rem;}
+.section-body{font-size:1rem;color:var(--muted);font-weight:400;line-height:1.8;max-width:680px;}
+
+/* MISSION */
+#mission{background:var(--white);}
+.mission-photos{display:grid;grid-template-columns:repeat(3,1fr);gap:1rem;margin-bottom:3.5rem;}
+.mission-photo{border-radius:16px;overflow:hidden;aspect-ratio:4/3;}
+.mission-photo img{width:100%;height:100%;object-fit:cover;display:block;transition:transform 0.4s;}
+.mission-photo:hover img{transform:scale(1.04);}
+.mission-text-grid{display:grid;grid-template-columns:1fr 1fr 1fr;gap:1.5rem;margin-top:2.5rem;}
+.mission-pillar{background:var(--bg);border-radius:16px;padding:1.8rem;border-top:4px solid var(--teal);}
+.mission-pillar:nth-child(2){border-top-color:var(--coral);}
+.mission-pillar:nth-child(3){border-top-color:var(--lav);}
+.mission-pillar h3{font-size:1rem;font-weight:700;color:var(--navy);margin-bottom:0.6rem;}
+.mission-pillar p{font-size:0.88rem;color:var(--muted);line-height:1.72;}
+
+/* VISION */
+#vision{background:var(--bg);}
+.vision-intro{margin-bottom:3.5rem;}
+.vision-cards{display:grid;grid-template-columns:repeat(3,1fr);gap:1.5rem;}
+.vision-card{background:var(--white);border-radius:16px;padding:2.2rem;border-top:4px solid var(--teal);transition:transform 0.2s,box-shadow 0.2s;}
+.vision-card:hover{transform:translateY(-3px);box-shadow:0 16px 48px rgba(27,42,74,0.08);}
+.vision-card:nth-child(2){border-top-color:var(--coral);}
+.vision-card:nth-child(3){border-top-color:var(--gold);}
+.vision-card-label{font-size:10px;font-weight:700;letter-spacing:0.14em;text-transform:uppercase;color:var(--teal);margin-bottom:0.8rem;}
+.vision-card:nth-child(2) .vision-card-label{color:var(--coral);}
+.vision-card:nth-child(3) .vision-card-label{color:var(--gold);}
+.vision-card h3{font-size:1.1rem;font-weight:700;color:var(--navy);margin-bottom:0.8rem;line-height:1.3;}
+.vision-card p{font-size:0.88rem;color:var(--muted);line-height:1.75;}
+
+/* WHY NOW */
+#whynow{background:var(--navy);}
+#whynow .section-title{color:white;}
+#whynow .section-body{color:rgba(255,255,255,0.5);}
+.why-cards{display:grid;grid-template-columns:repeat(3,1fr);gap:1.4rem;margin-top:3.5rem;}
+.why-card{background:#fff;border-radius:20px;padding:1.8rem;display:flex;flex-direction:column;justify-content:space-between;min-height:300px;}
+.why-card-content{}
+.why-card h3{font-size:0.97rem;font-weight:800;color:#1B2A4A;margin-bottom:0.7rem;line-height:1.3;}
+.why-card p{font-size:0.85rem;color:#4a5a72;line-height:1.72;}
+.why-deco{margin-top:1rem;}
+
+/* APPROACH */
+#approach{background:var(--white);}
+.approach-timeline{margin-top:3.5rem;position:relative;}
+.approach-timeline::before{content:'';position:absolute;left:22px;top:0;bottom:0;width:2px;background:linear-gradient(to bottom,var(--teal),var(--lav),transparent);}
+.approach-step{display:flex;gap:2.5rem;margin-bottom:3rem;position:relative;}
+.step-dot{width:46px;height:46px;border-radius:50%;flex-shrink:0;display:flex;align-items:center;justify-content:center;font-size:13px;font-weight:800;color:white;position:relative;z-index:1;}
+.step-dot.s1{background:var(--teal);}
+.step-dot.s2{background:var(--lav);}
+.step-dot.s3{background:var(--teal);}
+.step-body{flex:1;padding-top:0.3rem;}
+.step-tag{font-size:10px;font-weight:600;letter-spacing:0.14em;text-transform:uppercase;color:var(--muted);margin-bottom:0.4rem;}
+.step-body h3{font-size:1.2rem;font-weight:700;color:var(--navy);margin-bottom:0.6rem;}
+.step-body p{font-size:0.92rem;color:var(--muted);line-height:1.75;max-width:660px;}
+.approach-note{margin-top:3rem;padding:1.6rem 2rem;background:var(--teal-l);border-radius:14px;font-size:0.93rem;color:var(--navy);line-height:1.75;max-width:800px;}
+
+/* JOIN */
+#join{background:var(--navy);text-align:center;padding:7rem 2rem;position:relative;overflow:hidden;}
+#join::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse 60% 50% at 50% 80%,rgba(74,191,163,0.12) 0%,transparent 70%);}
+#join .section-label{position:relative;z-index:2;}
+#join .section-title{color:white;position:relative;z-index:2;margin:0 auto 1.2rem;}
+#join .section-body{color:rgba(255,255,255,0.45);margin:0 auto 2.5rem;position:relative;z-index:2;}
+.join-tags{display:flex;flex-wrap:wrap;gap:0.7rem;justify-content:center;margin-bottom:2.5rem;position:relative;z-index:2;}
+.join-tag{background:rgba(255,255,255,0.07);border:1px solid rgba(255,255,255,0.1);color:rgba(255,255,255,0.65);padding:0.4rem 1rem;border-radius:100px;font-size:0.82rem;font-weight:500;}
+.btn-join{display:inline-block;background:var(--teal);color:var(--navy);font-family:var(--font);font-size:14px;font-weight:700;letter-spacing:0.06em;text-transform:uppercase;padding:1rem 2.5rem;border-radius:100px;text-decoration:none;transition:background 0.2s,transform 0.2s;position:relative;z-index:2;}
+.btn-join:hover{background:#5dd4b6;transform:translateY(-2px);}
+
+/* FOOTER */
+footer{background:var(--navy);padding:2rem 3rem;display:grid;grid-template-columns:1fr 2fr 1fr;align-items:center;gap:1rem;border-top:1px solid rgba(255,255,255,0.06);}
+.footer-logo{font-size:15px;font-weight:700;color:white;letter-spacing:0.04em;}
+.footer-logo span{color:var(--teal);}
+.footer-links{display:flex;gap:1.8rem;justify-content:flex-end;}
+.footer-links a{color:rgba(255,255,255,0.35);text-decoration:none;font-size:11px;font-weight:500;letter-spacing:0.06em;text-transform:uppercase;transition:color 0.2s;}
+.footer-links a:hover{color:var(--teal);}
+
+@keyframes fadeUp{from{opacity:0;transform:translateY(22px);}to{opacity:1;transform:translateY(0);}}
+
+@media(max-width:960px){
+  .hero{grid-template-columns:1fr;padding-top:5rem;}
+  .hero-right{display:none;}
+  .mission-text-grid,.vision-cards,.why-cards{grid-template-columns:1fr;}
+  .contact-grid{grid-template-columns:1fr;}
+}
+@media(max-width:600px){
+  nav{padding:0 1.2rem;}
+  .nav-links{display:none;}
+  footer{grid-template-columns:1fr;text-align:center;gap:0.8rem;}
+  .footer-links{justify-content:center;}
+  .why-cards{grid-template-columns:1fr 1fr;}
+}
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<div style="position:fixed;top:0;left:0;right:0;height:60px;background:#4ABFA3;z-index:9999;display:flex;align-items:center;justify-content:space-between;padding:0 40px;font-family:'Plus Jakarta Sans',sans-serif;">
+  <a href="index.html" style="display:flex;align-items:center;gap:10px;text-decoration:none;">
+    <svg viewBox="0 0 126 133" fill="none" xmlns="http://www.w3.org/2000/svg" style="width:30px;height:30px;">
+      <path d="M103.164 17.8204C109.904 22.3504 115.014 31.6704 115.154 39.8304C115.204 42.3704 113.884 47.3604 114.504 49.4504C114.694 50.1104 118.154 53.4704 118.884 54.4204C127.314 65.2404 128.274 79.7204 117.834 89.6204C117.234 90.1904 116.234 90.5104 115.684 91.0604C113.744 93.0204 113.884 98.9704 113.104 101.79C110.694 110.52 101.854 117.55 92.9337 118.67C91.0437 118.91 87.0137 118.26 85.8137 119.46C83.4337 121.86 89.7037 128.54 84.6937 131.65C78.5737 135.45 75.4337 125.53 73.8637 121.38C72.8637 118.72 70.6937 113.32 70.9437 110.71C71.7037 102.6 79.8037 106.83 84.7637 107.24C88.2937 107.53 93.8537 107.24 96.6837 104.97C99.8837 102.39 102.174 97.9404 102.554 93.7604C102.854 90.5104 101.374 85.7904 104.374 83.7104C107.014 81.8804 108.034 82.2104 110.044 78.9504C114.374 71.8904 112.024 63.1604 105.404 58.5504C103.964 57.5504 100.704 56.4004 100.204 54.7604C99.2637 51.7004 101.494 48.7404 102.104 45.8304C103.994 36.8104 99.1937 27.1504 89.4337 26.3304C86.3437 26.0704 81.2437 26.9204 78.5637 26.0504C76.4237 25.3604 75.1337 21.1404 73.5837 19.1604C67.7037 11.6904 57.6137 10.9804 51.7037 18.8004C49.9437 21.1304 48.8337 25.9404 45.5637 26.3304C39.4637 27.0504 34.3637 24.7304 28.8637 29.0504C22.5337 34.0304 22.2237 41.3004 23.8937 48.7004C24.3237 50.5904 25.6737 51.7704 25.0637 54.0204C24.4937 56.1504 20.5637 57.9304 18.7537 59.5804C12.4437 65.3304 11.0037 75.0204 17.4437 81.2204C19.9837 83.6704 24.2437 83.9604 25.7337 87.1404C26.7437 89.3004 26.0637 90.9004 26.3137 93.0304C27.5637 103.59 37.2337 108.93 46.5637 102.86C49.7437 100.79 52.2237 95.5504 56.3437 98.9604C63.8037 105.13 52.1037 114.69 46.0937 116.42C34.0237 119.89 20.9837 114.9 15.8137 103.17C14.7537 100.77 14.0837 95.4904 13.3237 94.1504C12.7637 93.1604 8.55367 90.3704 7.41367 89.2704C-1.73633 80.3604 -2.18633 66.8204 4.79367 56.4204C6.64367 53.6604 10.9237 50.4604 10.8737 47.3604C10.7637 41.1104 9.76367 37.1904 12.0037 30.9004C15.1137 22.1704 22.1037 16.0004 31.2737 14.2004C33.5337 13.7604 37.3337 13.9004 39.1737 13.1104C40.1637 12.6804 43.2037 8.48042 44.2837 7.43042C54.3937 -2.30958 69.3737 -2.33958 80.0737 6.55042C81.5737 7.80042 85.4637 12.6804 86.4737 13.1004C88.6337 14.0004 92.9037 13.8304 95.7337 14.6304C97.7337 15.1904 101.474 16.6804 103.164 17.8104V17.8204Z" fill="#1B2A4A"/>
+      <path d="M52.5932 60.8604C51.2932 61.7204 50.0232 77.1104 49.2332 79.9804C48.6232 82.1904 47.6032 84.4204 45.1232 84.8604C40.9132 85.6004 35.8132 84.5904 36.0332 79.3804C36.3032 73.2104 38.6932 65.0204 39.8832 58.7604C41.0732 52.5004 41.3132 45.9904 43.5732 40.1504C44.7532 37.1104 46.7232 36.5004 49.8632 36.3804C55.8632 36.1404 57.6432 38.8504 59.4732 44.0604C60.0232 45.6304 61.6132 53.6704 63.5432 53.6704C64.2232 53.6704 64.5832 52.9704 64.8732 52.4704C68.0732 46.9704 67.1032 37.0304 75.4132 36.4004C82.6832 35.8504 83.2932 38.5204 84.8332 44.5904C86.9332 52.8404 88.8732 63.7804 90.2432 72.2704C90.6032 74.4704 91.3132 78.7004 90.9632 80.7304C90.0232 86.2304 80.3632 86.8404 78.3532 81.6404C76.2232 76.1304 76.9032 68.3604 75.0532 62.6404C74.6632 61.4204 74.0032 60.0104 72.9032 61.5904L66.4032 74.8704C65.2932 76.0304 63.5532 76.2904 62.1332 75.5404C60.5032 74.6904 56.6632 65.8104 55.3632 63.6104C54.9232 62.8604 53.5132 60.2404 52.5732 60.8604H52.5932Z" fill="#1B2A4A"/>
+    </svg>
+    <span style="font-size:15px;font-weight:700;color:#1B2A4A;letter-spacing:0.04em;">MCert</span>
+  </a>
+  <div style="display:flex;gap:2.5rem;align-items:center;">
+    <a href="index.html" style="color:#1B2A4A;font-size:12px;font-weight:700;text-decoration:none;letter-spacing:0.08em;text-transform:uppercase;">Home</a>
+    <a href="about.html" style="color:#1B2A4A;font-size:12px;font-weight:700;text-decoration:none;letter-spacing:0.08em;text-transform:uppercase;">About Us</a>
+    <a href="#contact" style="color:#1B2A4A;font-size:12px;font-weight:700;text-decoration:none;letter-spacing:0.08em;text-transform:uppercase;">Contact</a>
+  </div>
+</div>
+<!-- spacer for fixed nav -->
+<div style="height:60px;"></div>
+
+<!-- HERO -->
+<section class="hero" id="hero">
+  <div class="hero-left">
+    <h1>The Standard<br>for <em>Clarity</em></h1>
+    <p class="hero-sub">Building the trust infrastructure the youth mental health field urgently needs: Quality Standards that balance safety, risk, outcomes, and engagement, grounded in how young people actually experience value.</p>
+    <a href="#join" class="btn-primary">JOIN US <svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M2 12L12 2M12 2H5M12 2V9" stroke="#1B2A4A" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
+  </div>
+  <div class="hero-right">
+    <div class="brain-wrap">
+      <img src="mcert_brain.svg" alt="MCert brain illustration"/>
+    </div>
+  </div>
+</section>
+
+<!-- MISSION -->
+<section class="section" id="mission">
+  <div class="container">
+    <h2 class="section-title">Our Mission</h2>
+    <p class="section-body">Youth mental health is still in crisis, with millions turning to digital tools for support. But without clear standards, it's hard to know what works or scale what does.</p>
+    <p class="section-body" style="margin-top:1rem;">At MCert, we're collaborating with leaders to design an efficacy framework for sub-clinical mental health tools that will answer the question: "What does 'good' look like for digital, subclinical mental health tools, including real-world implementation practices?" Our end goal is to instill Systemic Trust, increase sustainable adoption, and improve well-being for all young people.</p>
+    <p class="section-body" style="margin-top:1rem;">We are on a mission to help funders, health and technology leaders and policymakers to confidently identify, fund, and scale high-quality subclinical digital mental health and wellbeing tools.</p>
+    <div style="margin-top:2.5rem;border-radius:16px;overflow:hidden;width:100%;aspect-ratio:16/7;">
+      <img src="convening-hero.jpg" alt="MCert convening" style="width:100%;height:100%;object-fit:cover;object-position:center;display:block;"/>
+    </div>
+  </div>
+</section>
+
+<!-- VISION -->
+<section class="section" id="vision">
+  <div class="container">
+    <div class="vision-intro">
+      <p class="section-label">Our Vision</p>
+      <h2 class="section-title">A Win–Win–Win Future</h2>
+      <p class="section-body">MCert believes in a triple win for the digital youth mental health ecosystem — a future where all system enablers, from community leaders to youth, can easily find trusted, effective, and safe sub-clinical mental health tools.</p>
+    </div>
+    <div class="vision-cards">
+      <div class="vision-card">
+        <h3>For Beneficiaries (Youth)</h3>
+        <p>Youth bear the greatest burden of poor quality standards, especially those from low-income backgrounds, communities of color, LGBTQ+ and rural areas. MCert gives every young person and their family confidence that the tools they use are safe and designed with their well-being at the center.</p>
+      </div>
+      <div class="vision-card">
+        <h3>For Payors (System Enablers)</h3>
+        <p>Those who fund digital mental health tools — from philanthropy to government to insurance — all need clarity to navigate a market filled with unverified tools. MCert establishes non-partisan Quality Standards that ease decision-making, build confidence, and mitigate risk, enabling investment in solutions that are safe and effective.</p>
+      </div>
+      <div class="vision-card">
+        <h3>For Builders (Innovators)</h3>
+        <p>Innovators who build high-quality mental health tools deserve a clear pathway to demonstrate their value. MCert Quality Standards give builders a credible, verifiable standard to meet — unlocking trust, investment, and sustainable adoption in an otherwise crowded market.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- WHY NOW -->
+<section class="section" id="whynow">
+  <div class="container">
+    <h2 class="section-title">Why Now</h2>
+    <div class="why-cards">
+      <div class="why-card">
+        <div class="why-card-content">
+          <h3>Innovation Outpacing Infrastructure</h3>
+          <p>The surge of new products, accelerated by generative AI, has outpaced the systems designed to assess quality, safety, and effectiveness. Static evaluation is no longer an option — the time has come for an adaptive approach that can respond to rapid technological change.</p>
+        </div>
+        <div class="why-deco">
+          <svg width="100%" height="60" viewBox="0 0 200 60" fill="none">
+            <ellipse cx="70" cy="45" rx="55" ry="38" fill="#4ABFA3" opacity="0.2"/>
+            <ellipse cx="130" cy="45" rx="55" ry="38" fill="#4ABFA3" opacity="0.15"/>
+          </svg>
+        </div>
+      </div>
+      <div class="why-card">
+        <div class="why-card-content">
+          <h3>Siloed Efforts Create More Confusion</h3>
+          <p>The digital mental health space is growing faster than our ability to evaluate it. Sectors are working in silos, duplicating effort and deepening confusion, while young people bear the cost. The ecosystem needs a connector focused on both standards and implementation.</p>
+        </div>
+        <div class="why-deco">
+          <svg width="100%" height="60" viewBox="0 0 200 60" fill="none">
+            <circle cx="10" cy="10" r="3" fill="#4ABFA3" opacity="0.4"/>
+            <circle cx="30" cy="10" r="3" fill="#4ABFA3" opacity="0.4"/>
+            <circle cx="50" cy="10" r="3" fill="#4ABFA3" opacity="0.4"/>
+            <circle cx="70" cy="10" r="3" fill="#4ABFA3" opacity="0.4"/>
+            <circle cx="90" cy="10" r="3" fill="#4ABFA3" opacity="0.4"/>
+            <circle cx="110" cy="10" r="3" fill="#4ABFA3" opacity="0.4"/>
+            <circle cx="10" cy="30" r="3" fill="#4ABFA3" opacity="0.3"/>
+            <circle cx="30" cy="30" r="3" fill="#4ABFA3" opacity="0.3"/>
+            <circle cx="50" cy="30" r="3" fill="#4ABFA3" opacity="0.3"/>
+            <circle cx="70" cy="30" r="3" fill="#4ABFA3" opacity="0.3"/>
+            <circle cx="90" cy="30" r="3" fill="#4ABFA3" opacity="0.3"/>
+            <circle cx="110" cy="30" r="3" fill="#4ABFA3" opacity="0.3"/>
+          </svg>
+        </div>
+      </div>
+      <div class="why-card">
+        <div class="why-card-content">
+          <h3>Rising Reliance on Digital Support</h3>
+          <p>More people are turning to digital tools for mental health support, but many offerings remain unproven. Without clarity, system enablers risk investing in solutions that fail, or cause harm.</p>
+        </div>
+        <div class="why-deco">
+          <svg width="100%" height="60" viewBox="0 0 200 60" fill="none">
+            <path d="M0,20 Q25,5 50,20 Q75,35 100,20 Q125,5 150,20 Q175,35 200,20" stroke="#4ABFA3" stroke-width="2.5" fill="none" opacity="0.45"/>
+            <path d="M0,38 Q25,23 50,38 Q75,53 100,38 Q125,23 150,38 Q175,53 200,38" stroke="#4ABFA3" stroke-width="2" fill="none" opacity="0.25"/>
+          </svg>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- APPROACH -->
+<section class="section" id="approach">
+  <div class="container">
+    <h2 class="section-title">Our Phased Approach</h2>
+    <p class="section-body">MCert is following a collaborative, phased approach to building the non-partisan infrastructure the digital youth mental health sector needs to thrive.</p>
+    <div class="approach-timeline">
+      <div class="approach-step">
+        <div class="step-dot s1">1</div>
+        <div class="step-body">
+          <p class="step-tag">2025</p>
+          <h3>MCert Founded</h3>
+          <p>Eight months of research, interviews, and building relationships across the digital youth mental health ecosystem, laying the foundation for a trusted, non-partisan Quality Standard.</p>
+        </div>
+      </div>
+      <div class="approach-step">
+        <div class="step-dot s2">2</div>
+        <div class="step-body">
+          <p class="step-tag">2026 · Complete</p>
+          <h3>Convene the Right Minds</h3>
+          <p>Brought together ~30 curated experts across payors, policy, tech, research, and community to surface core challenges, align on shared priorities, and begin shaping the foundations for evaluating digital mental health tools. Their insights anchor a trusted, non-partisan approach.</p>
+        </div>
+      </div>
+      <div class="approach-step">
+        <div class="step-dot s3">3</div>
+        <div class="step-body">
+          <p class="step-tag">Q2-3 2026 · In Progress</p>
+          <h3>Co-Create a Blueprint</h3>
+          <p>Working collectively to develop a blueprint that defines clear, science-backed criteria and practical strategies for assessing digital mental health tools. This blueprint will outline a go-to-market roadmap for testing, refining, and validating Quality Standards in real-world environments.</p>
+        </div>
+      </div>
+      <div class="approach-step">
+        <div class="step-dot s1">4</div>
+        <div class="step-body">
+          <p class="step-tag">Q4 2026 and Beyond</p>
+          <h3>Move to Action</h3>
+          <p>With the blueprint established, MCert will move into active piloting with partners across sectors, demonstrating how trusted standards can simplify decision-making, unlock responsible innovation, and strengthen market confidence in digital youth mental health tools.</p>
+        </div>
+      </div>
+    </div>
+    <p class="approach-note">Throughout this work, we will center youth perspectives and equity, ensuring that our approach reflects the realities of those most impacted and creates a more inclusive, accountable ecosystem for all.</p>
+  </div>
+</section>
+
+<!-- JOIN -->
+<section class="section" id="join">
+  <p class="section-label">Get Involved</p>
+  <h2 class="section-title">Join the Mission</h2>
+  <p class="section-body">This work depends on collaboration across sectors. Whether you shape policy, fund solutions, build products, or support communities, your expertise strengthens the standard we're creating.</p>
+  <div class="join-tags">
+    <span class="join-tag">Payors</span>
+    <span class="join-tag">Policymakers</span>
+    <span class="join-tag">Funders</span>
+    <span class="join-tag">Builders & Founders</span>
+    <span class="join-tag">Researchers</span>
+    <span class="join-tag">Government Procurement</span>
+    <span class="join-tag">Evaluators</span>
+    <span class="join-tag">Big Tech & Social Platforms</span>
+  </div>
+  <a href="#contact" class="btn-join">JOIN US <svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M2 12L12 2M12 2H5M12 2V9" stroke="#1B2A4A" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
+</section>
+
+<!-- CONTACT -->
+<section class="section" id="contact">
+  <div class="container">
+    <p class="section-label">Contact</p>
+    <h2 class="section-title">Get In Touch</h2>
+    <p class="section-body" style="margin-bottom:2.5rem;">We'd love to hear from you. Whether you're interested in our Quality Standards, exploring partnership opportunities, or joining our next convening, reach out directly.</p>
+    <a href="mailto:hello@mcert.space" class="btn-primary">EMAIL US <svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M2 12L12 2M12 2H5M12 2V9" stroke="#1B2A4A" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div style="display:flex;align-items:center;gap:10px;">
+    <img src="mcert_logo.svg" alt="MCert" style="width:32px;height:32px;filter:brightness(0) invert(1);"/>
+    <span style="font-size:15px;font-weight:700;color:white;letter-spacing:0.04em;">M<span style="color:var(--teal);">Cert</span></span>
+  </div>
+  <p style="font-size:0.82rem;color:rgba(255,255,255,0.45);text-align:center;">
+    MCert is an initiative spearheaded by <a href="https://givingback.org/" target="_blank" style="color:var(--teal);text-decoration:none;font-weight:500;">The Giving Back Fund</a>, with support from <a href="https://www.pivotal.com/" target="_blank" style="color:var(--teal);text-decoration:none;font-weight:500;">Pivotal</a>.
+  </p>
+  <nav class="footer-links">
+    <a href="#mission">About</a>
+    <a href="#vision">Vision</a>
+    <a href="#approach">Approach</a>
+    <a href="#contact">Contact</a>
+  </nav>
+</footer>
+
+<script>
+function handleSubmit(e){
+  e.preventDefault();
+  const btn=e.target.querySelector('.btn-submit');
+  btn.textContent='✓ Sent!';
+  setTimeout(()=>{btn.textContent='Send Message';e.target.reset();},3000);
+}
+</script>
+</body>
+</html>
